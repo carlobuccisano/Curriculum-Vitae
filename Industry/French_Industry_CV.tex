@@ -15,6 +15,21 @@
 \hypersetup{bookmarksnumbered=true, colorlinks=true}
 
 
+%%% My commands %%%
+
+% Print soft skills resume:
+
+\newboolean{skills}
+\setboolean{skills}{false}
+%\setboolean{skills}{true}
+
+% Role to emphasize:
+\newcommand{\Role}{Data Science}
+
+% Text colors
+\newcommand{\Scuro}[1]{\textcolor{darkgray}{#1}}
+\newcommand{\Chiaro}[1]{\textcolor{gray}{#1}}
+
 %----------------------------------------------------------------------------------------
 %	NAME AND CONTACT INFORMATION SECTION
 %----------------------------------------------------------------------------------------
@@ -29,55 +44,56 @@
 %\phone{}
 \social[github]{carlobuccisano}
 \social[linkedin]{carlobuccisano}
-\extrainfo{Langues : italien, anglais, français et un peu d'espagnol}
+\extrainfo{Langues : italien, anglais, français et espagnol (A2)}
 %----------------------------------------------------------------------------------------
 
 \begin{document}
 
 \makecvtitle % Print the CV title
 
-Doctorat en mathématiques pures à la recherche d'un poste en Data Science. 
-
+Doctorat en mathématiques, avec une expérience de recherche en géométrie algébrique et en topologie algébrique, passionné par la programmation et Linux. À la recherche d'un poste en \Role.
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 \section{Expérience Professionnelle}
 \cventry{2024--2025}{ATER en Mathématiques}{Université Paris-Saclay (Orsay)}{}{}{
-	\textcolor{darkgray}{Enseignement de 192 heures de cours de mathématiques fondamentales en français en licence.	\\ Compétences relationnelles : communication et leadership.}
+	\Scuro{Enseignement de 192 heures de cours de mathématiques fondamentales en français en licence.}
+	\ifthenelse{\boolean{skills}}{\\ \Scuro{Compétences relationnelles : communication et leadership.}}{\empty}
 }
 
 \cventry{2021--2025}{PhD en Mathématiques}{Université Paris-Saclay (Orsay)}{}{}{
 	\begin{itemize}
-		\item \textcolor{darkgray}{ J'ai mené des recherches en géométrie algébrique dérivée, un mélange entre la géométrie algébrique et la théorie de l'homotopie, où j'ai utilisé les D-modules dérivés pour relier plusieurs concepts dans la littérature. Ma thèse est disponible sur \href{https://theses.hal.science/tel-05351522v1}{HAL} et sur \href{https://arxiv.org/abs/2510.15665}{arXiv}. 
-		\item J'ai co-organisé la conférence GAeL XXIX, qui a réuni plus de 100 personnes à Orsay.
+		\ifthenelse{\boolean{skills}}{
+			\item \Scuro{ J'ai mené des recherches en géométrie algébrique dérivée où j'ai utilisé les D-modules dérivés pour relier plusieurs concepts dans la littérature. Ma thèse est disponible sur \href{https://theses.hal.science/tel-05351522v1}{HAL} et sur \href{https://arxiv.org/abs/2510.15665}{arXiv}.}
+		}{
+		\item \Scuro{ J'ai mené des recherches en géométrie algébrique dérivée, un mélange entre la géométrie algébrique et la théorie de l'homotopie, où j'ai utilisé les D-modules dérivés pour relier plusieurs concepts dans la littérature et résoudre des conjectures sur la cohomologie des algebro{\"i}des de Lie. Ma thèse est disponible sur \href{https://theses.hal.science/tel-05351522v1}{HAL} et sur \href{https://arxiv.org/abs/2510.15665}{arXiv}.}
+	   }
+		\item \Scuro{J'ai co-organisé la conférence GAeL XXIX, qui a réuni plus de 100 personnes à Orsay.
 	\item J'ai donné plusieurs conférences publiques et présenté des posters à des publics d'horizons divers.}
 	\end{itemize}
-	\textcolor{darkgray}{Compétences relationnelles : gestion du temps, communication et problem solving.}
+	\ifthenelse{\boolean{skills}}{ \Scuro{Compétences relationnelles : gestion du temps, communication et problem solving.}}{\empty}
 }
 
 \cventry{Juillet 2015}{Programmeur Informatique}{IBM}{UK}{}{
 	\begin{itemize}
-		\item \textcolor{darkgray}{ J'ai travaillé en bin{\^o}me avec un autre collègue, au sein d'une équipe de 5 personnes.
-		 \item J'ai développé et documenté certaines API d'un outil de planification interne en Python.  
-		\item Prix de la Banque d'Italie pour l'étude des mathématiques et de l'informatique.  }
-\end{itemize}
-	\textcolor{darkgray}{Compétences relationnelles : travail d'équipe et gestion de projet.}
+		\ifthenelse{\boolean{skills}}{
+			\item \Scuro{Programmation en bin{\^o}me au sein d'une équipe de 5 personnes (Agile).}
+			\item \Scuro{Backend Python pour gérer des bases de données MySQL.}
+		}{
+		\item \Scuro{Realisation d'un outil de planification interne, programmation en bin{\^o}me au sein d'une équipe de 5 personnes (Agile).}
+		\item \Scuro{Backend Python pour gérer des bases de données MySQL à partir de requêtes JSON provenant d'une application web.}
+		}
+		\item \Scuro{Prix de la Banque d'Italie pour l'étude des mathématiques et de l'informatique.} 
+	\end{itemize}
+	\ifthenelse{\boolean{skills}}{\Scuro{Compétences relationnelles : travail d'équipe et gestion de projet.}}{\empty}
 }
 
 \section{Compétences Techniques}
 
-%\cvitem{}{ {\small \begin{itemize}
-%	\item \textcolor{darkgray}{J'ai appris HTML, CSS et Javascript en codant ma page web personelle.
-%\item Je sais coder en \texttt{C++} et \texttt{Python} (grâce à les competitions et à des cours de licence).
-%	\item J'ai appris et maîtrisé \LaTeX\, pendant mon doctorat, pour rédiger ma thèse.
-%\item  J'utilise Arch Linux au quotidien : je maîtrise bien les scripts Bash et les conteneurs Docker.
-%\item  J'utilise le contrôle de version \texttt{git}, à la fois depuis le terminal et depuis l'interface web GitHub.}
-%\end{itemize} } }
-
-\cvitem{Familier}{HTML, CSS, JavaScript (j'ai codé mon site web)}
-\cvitem{}{\texttt{git}, Docker (j'héberge des logiciels sur mon serveur)}
-\cvitem{Compétent}{\texttt{C++}, \texttt{Python} (programmation compétitive), Script bash sous Linux, \LaTeX}
+\cvitem{Familier}{HTML, CSS, JavaScript \Chiaro{(j'ai codé mon site web)}}
+\cvitem{}{\texttt{git}, Docker \Chiaro{(self-hosting sur mon serveur)}}
+\cvitem{Compétent}{\texttt{C++} \Chiaro{(Olympiades informatique)}, \texttt{Python} \Chiaro{(stage et université)}, Script Bash, \LaTeX}
 
 
 
@@ -88,16 +104,16 @@ Doctorat en mathématiques pures à la recherche d'un poste en Data Science.
 \section{Éducation}
 \cventry{2021--2025}{PhD en Mathématiques}{Université Paris-Saclay (Orsay)}{}{}{}
 \cventry{2016--2022}{Dipl{\^o}me Galiléen}{Scuola Galileiana di Studi Superiori, Padova (Italy)}{}{}{
-	\textcolor{darkgray}{
+	\Scuro{
 		Diplômé de la \href{https://scuolagalileiana.unipd.it/}{Scuola Galileiana}, un institut universitaire d'excellence à Padoue (taux d'admission de 7\%). Cours pertinents : Machine Learning et programmation concurrente (Java).
 }
 }
 
-\cventry{2019--2021}{Master en Mathématiques}{Università degli Studi di Padova \& Université Paris-Saclay}{}{}{\textcolor{darkgray}{
+\cventry{2019--2021}{Master en Mathématiques}{Università degli Studi di Padova \& Université Paris-Saclay}{}{}{\Scuro{
 		Diplômé du \href{https://algant.eu/}{double diplôme Algant} avec mention \textit{Très Bien}, première année à Padova (30/30) puis à Orsay (18.7/20). Bénéficiaire d'une bourse de 10 000\,\euro\, de la FMJH.
 }}
 \cventry{2016--2019}{Licence en Mathématiques}{Università degli Studi di Padova}{}{}
-{\textcolor{darkgray}{Moyenne générale : 29.965/30; \textit{110/110 cum laude} (équivalent à ``Très bien'').}}
+{\Scuro{Moyenne générale : 29.965/30; \textit{110/110 cum laude} (équivalent à ``Très bien'').}}
 
 
 %----------------------------------------------------------------------------------------
@@ -106,10 +122,11 @@ Doctorat en mathématiques pures à la recherche d'un poste en Data Science.
 \section{Prix}
 
 \cventry{2013--2015}{Médailles aux Olympiades italiennes de mathématiques et d'informatiques}{}{}{}{
- \textcolor{darkgray}{
-	 J'ai obtenu deux médailles d'or (une troisième et une première place absolues) et une médaille de bronze aux Olympiades italiennes d'informatique, ainsi qu'une médaille d'argent aux Olympiades italiennes de mathématiques.\\ Compétences : résolution de problèmes, travail sous pression, structures de données et algorithmes.}}
+ \Scuro{
+J'ai obtenu deux médailles d'or (une troisième et une première place absolues) et une médaille de bronze aux Olympiades italiennes d'informatique, ainsi qu'une médaille d'argent aux Olympiades italiennes de mathématiques.}
+\ifthenelse{\boolean{skills}}{\\ \Scuro{Compétences : résolution de problèmes, travail sous pression, structures de données et algorithmes.}}{\empty}}
 
-\cventry{2013--2015}{Programmation compétitive}{}{}{}{ \textcolor{darkgray}{
+\cventry{2013--2015}{Programmation compétitive}{}{}{}{ \Scuro{
 Participation à plusieurs concours en ligne, tels que Google Code Jam, HashCode, Codeforces.}}
 
 \end{document}
